@@ -1,0 +1,37 @@
+# Dependencies
+node_modules/
+
+# Temp conversion files
+tmp/*
+!tmp/.gitkeep
+
+# Secrets & local config
+.env
+ssl/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Claude Code
+.claude/
+
+# Local planning & working documents
+PLAN*.md
+
+# OS files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor directories
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Build / cache artifacts
+.cache/
+dist/
+.npm/
