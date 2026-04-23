@@ -5,6 +5,9 @@ node_modules/
 tmp/*
 !tmp/.gitkeep
 
+# SQLite database
+data/
+
 # Secrets & local config
 .env
 ssl/
@@ -16,8 +19,14 @@ npm-debug.log*
 # Claude Code
 .claude/
 
-# Local planning & working documents
+# Local planning, implementation & working documents
 PLAN*.md
+ROADMAP*.md
+IMPL_PLAN.md
+CLAUDE.md
+
+# Tests (local only)
+tests/
 
 # OS files
 .DS_Store

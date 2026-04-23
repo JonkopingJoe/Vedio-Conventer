@@ -100,4 +100,4 @@ async function startConversion(jobId) {
   });
 }
 
-module.exports = { startConversion };
+module.exports = { startConversion, sanitizeError };

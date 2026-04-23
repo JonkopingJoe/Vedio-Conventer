@@ -58,7 +58,8 @@ const uploadSingle = multer({
  *   WMV / ASF  — 0x30 0x26 0xB2 0x75                at offset 0
  */
 async function assertVideoMagicBytes(filePath) {
-  const fd     = await fs.promises.open(filePath, 'r');
+  let fd;
+  try { fd = await fs.promises.open(filePath, 'r'); } catch (_) { return false; }
   const buffer = Buffer.alloc(12);
   try {
     const { bytesRead } = await fd.read(buffer, 0, 12, 0);

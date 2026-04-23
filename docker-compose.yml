@@ -1,0 +1,30 @@
+services:
+  app:
+    build: .
+    ports:
+      - "3000:3000"
+    environment:
+      NODE_ENV: production
+      PORT: 3000
+      MAX_FILE_MB: 500
+      MAX_CONCURRENT_JOBS: 3
+      JOB_TTL_MINUTES: 60
+      CLEANUP_INTERVAL_MINUTES: 30
+      RATE_LIMIT_WINDOW_MINUTES: 10
+      RATE_LIMIT_MAX_REQUESTS: 5
+      DB_PATH: /app/data/jobs.db
+    volumes:
+      - tmp_data:/app/tmp
+      - db_data:/app/data
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "node", "-e",
+        "require('http').get('http://localhost:3000/api/health', r => process.exit(r.statusCode === 200 ? 0 : 1)).on('error', () => process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+
+volumes:
+  tmp_data:
+  db_data:

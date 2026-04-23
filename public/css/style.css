@@ -465,6 +465,24 @@ body {
 .format-badge[data-format="flv"],
 .format-from-box[data-format="flv"]  { color: #9b2c2c; background: #fff5f5; }
 
+.format-badge[data-format="wmv"],
+.format-from-box[data-format="wmv"]  { color: #1a5276; background: #eaf4fb; }
+
+.format-badge[data-format="h265"],
+.format-from-box[data-format="h265"] { color: #1d6a4a; background: #e8f8f2; }
+
+.format-badge[data-format="3gp"],
+.format-from-box[data-format="3gp"]  { color: #744210; background: #fffbeb; }
+
+.format-badge[data-format="ogv"],
+.format-from-box[data-format="ogv"]  { color: #553c9a; background: #faf5ff; }
+
+.format-badge[data-format="mpg"],
+.format-from-box[data-format="mpg"]  { color: #234e52; background: #e6fffa; }
+
+.format-badge[data-format="ts"],
+.format-from-box[data-format="ts"]   { color: #702459; background: #fff5f7; }
+
 /* Unknown / undetected format */
 .format-badge[data-format=""],
 .format-from-box[data-format=""]     { color: #718096; background: #f7fafc; }

@@ -1,0 +1,13 @@
+node_modules/
+tmp/
+data/
+.env
+.git/
+*.log
+npm-debug.log*
+PLAN*.md
+ROADMAP*.md
+IMPL_PLAN.md
+CLAUDE.md
+tests/
+.claude/

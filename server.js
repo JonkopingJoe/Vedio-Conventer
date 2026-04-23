@@ -11,8 +11,9 @@ const uploadRouter   = require('./src/routes/upload');
 const progressRouter = require('./src/routes/progress');
 const downloadRouter = require('./src/routes/download');
 
-const { uploadLimiter } = require('./src/middleware/rateLimiter');
-const { startCleanup }  = require('./src/services/cleanup');
+const { uploadLimiter }     = require('./src/middleware/rateLimiter');
+const { startCleanup }      = require('./src/services/cleanup');
+const { recoverStalledJobs } = require('./src/services/jobStore');
 
 const app  = express();
 const PORT = process.env.PORT || 3000;
@@ -97,6 +98,7 @@ app.use((err, req, res, next) => {
 app.listen(PORT, () => {
   console.log(`[mp4tool] Server running on http://localhost:${PORT}`);
   console.log(`[mp4tool] Environment: ${process.env.NODE_ENV || 'development'}`);
+  recoverStalledJobs();
   startCleanup();
 });
 

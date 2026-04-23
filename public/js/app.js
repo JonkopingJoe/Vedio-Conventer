@@ -3,14 +3,16 @@
 // ─── Format constants (must match src/config/formats.js) ─────────────────────
 
 const FORMAT_LABELS = {
-  mp4: 'MP4', avi: 'AVI', mkv: 'MKV', mov: 'MOV', webm: 'WebM', flv: 'FLV',
+  mp4: 'MP4', avi: 'AVI', mkv: 'MKV', mov: 'MOV', webm: 'WebM',
+  flv: 'FLV', wmv: 'WMV', h265: 'H.265',
+  '3gp': '3GP', ogv: 'OGV', mpg: 'MPG', ts: 'TS',
 };
 
 // Output formats available in the picker (order = display order)
-const OUTPUT_FORMATS = ['avi', 'mp4', 'mkv', 'mov', 'webm'];
+const OUTPUT_FORMATS = ['avi', 'mp4', 'mkv', 'mov', 'webm', 'flv', 'wmv', 'h265', '3gp', 'ogv', 'mpg', 'ts'];
 
-// Slower-to-encode formats (VP9 etc.) — shown as "· slower" hint
-const SLOWER_FORMATS = new Set(['webm']);
+// Slower-to-encode formats — shown as "· slower" hint
+const SLOWER_FORMATS = new Set(['webm', 'h265', 'ogv']);
 
 // Smart default output for each detected input format
 const SMART_DEFAULTS = {
@@ -20,11 +22,12 @@ const SMART_DEFAULTS = {
   mov: 'mp4', qt: 'mp4',
   webm: 'mp4',
   flv: 'mp4',
+  wmv: 'mp4',
 };
 
 // Extensions accepted on the client (mirrors ALLOWED_INPUT_EXTENSIONS on the server)
 const ALLOWED_EXTENSIONS = new Set([
-  '.mp4', '.m4v', '.avi', '.mkv', '.mov', '.qt', '.webm', '.flv',
+  '.mp4', '.m4v', '.avi', '.mkv', '.mov', '.qt', '.webm', '.flv', '.wmv', '.asf',
 ]);
 
 // Extension → format key
@@ -35,6 +38,7 @@ const EXTENSION_MAP = {
   '.mov': 'mov', '.qt': 'mov',
   '.webm': 'webm',
   '.flv': 'flv',
+  '.wmv': 'wmv', '.asf': 'wmv',
 };
 
 // ─── App state ────────────────────────────────────────────────────────────────
